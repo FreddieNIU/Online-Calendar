@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link href='{% static 'css/style_login.css' %}' rel='stylesheet' />
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+
+</head>
+
+<body>
+
+    <div id="signup_popup">
+        <form action="##" id="signup_form" method="post">
+            {% csrf_token %}
+            Username:<br>
+            <input type="text" name="username" value="" required="required">
+            <br><br>
+            Password:<br>
+            <input type="text" name="password" value="" id='password' required="required">
+            <br>
+            <br><br>
+            <input type="button" name='signup' value="sign up" onclick=sign_up()> <input type="button" onclick="hIde()" value="close">
+        </form>
+    </div>
+    <div id="all_dark"></div>
+
+
+    <h2>Login Page</h2><br>
+
+    <div class="login">
+    <form id="login" method="Post" action="user_login/">
+        {% csrf_token %}
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="Uname" id="Uname" placeholder="Username">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br><br>
+        <input type="submit" name="log" id="log" value="Log In Here">
+
+
+        <br><br>
+        <input type="checkbox" id="check">
+        <span>Remember me</span>
+        <br><br>
+
+
+    </form>
+        <script>
+            if('{{ note }}'!=""){
+                alert('{{ note }}');
+            }
+        </script>
+        <p id="note"></p>
+        <button onclick=pop()>Sign up</button>
+</div>
+</body>
+</html>
